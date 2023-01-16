@@ -1,0 +1,58 @@
+<!-- header -->
+<div class="header">
+  <nav
+    class="navbar navbar-expand-lg"
+    [ngClass]="modeStatus ? 'dark-nav' : 'light-nav'"
+  >
+    <div class="container header-content">
+      <button
+        mat-button
+        class="navbar-toggler d-lg-none shadow-none"
+        type="button"
+        data-toggle="collapse"
+        (click)="isShown = !isShown"
+      >
+        <mat-icon class="toggle-icon">{{
+          isShown ? "close" : "menu"
+        }}</mat-icon>
+      </button>
+      <div class="collapse navbar-collapse" [ngClass]="{ show: isShown }">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" *ngFor="let navItems of nav">
+            <a
+              class="nav-link text-capitalize nav-links"
+              [routerLink]="navItems.link"
+              routerLinkActive="active"
+              [routerLinkOptions]="{ match: ['/', '/all-countries'] }"
+              [matTooltip]="navItems.tooltip"
+              matTooltipHideDelay="100"
+            >
+              {{ navItems.name }}
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link">
+              <mat-button-toggle
+                appearance="legacy"
+                [checked]="darkMode$ | async"
+                (click)="onToggle()"
+                class="nav-btn shadow-none"
+                matTooltip="Change the Appearance"
+                matTooltipHideDelay="100"
+                ><span class="material-icons">
+                  {{ modeStatus ? "light_mode" : "dark_mode" }}
+                </span>
+
+                {{ modeStatus ? "Light Mode" : modeName }}
+              </mat-button-toggle>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
