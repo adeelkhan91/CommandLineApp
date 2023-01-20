@@ -1,0 +1,128 @@
+@import "../../styles/mediaQueries";
+@import "../../styles/mixins";
+
+.main-content {
+  font-family: $font-family-one;
+  input {
+    box-shadow: none !important;
+    &::placeholder {
+      font-weight: $fw-600;
+    }
+  }
+
+  select {
+    border: none !important;
+    margin: 0px auto;
+    font-weight: $fw-600;
+    box-shadow: none !important;
+    border-radius: 4px;
+  }
+
+  .card-content {
+    .card {
+      box-shadow: $box-shadow;
+      border: 0px;
+    }
+    img.country-flag {
+      object-fit: cover;
+      height: 190px;
+    }
+    li {
+      border: 0px none !important;
+    }
+    h5 {
+      margin-bottom: 0px !important;
+      font-weight: $fw-700;
+    }
+
+    .list-group {
+      font-weight: $fw-600;
+      li {
+        b {
+          text-transform: capitalize;
+          font-weight: $fw-800;
+        }
+      }
+    }
+
+    .card-footer {
+      .mat-stroked-button {
+        font-size: $fs-13;
+        border: none !important;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: $fw-700;
+      }
+    }
+    .no-result-text {
+      font-weight: $fw-600;
+      font-style: italic !important;
+      span {
+        font-weight: $fw-800;
+      }
+    }
+  }
+
+  // dark-mode
+  .dark-theme {
+    input {
+      @include dark-mode;
+      &::placeholder {
+        color: $light-color;
+      }
+    }
+    span.input-group-text,
+    button.input-group-text {
+      @include dark-mode;
+    }
+    select {
+      @include dark-mode;
+      border: 1px solid $light-color !important;
+    }
+    .card {
+      background-color: $dark-color;
+      .card-title {
+        color: $dark-text-color;
+      }
+      li {
+        background-color: $dark-color;
+        color: $light-color;
+      }
+      .card-footer {
+        a.mat-stroked-button {
+          color: $light-color;
+        }
+      }
+    }
+  }
+
+  // light-mode
+  .light-theme {
+    input {
+      @include light-mode;
+      &::placeholder {
+        color: $dark-color;
+      }
+    }
+    select {
+      @include light-mode;
+      border: 1px solid #aaa !important;
+    }
+
+    .card {
+      background-color: $light-color;
+      .card-title {
+        color: $light-text-color;
+      }
+      li {
+        color: $light-text-color;
+        background-color: $light-color;
+      }
+      .card-footer {
+        a.mat-stroked-button {
+          color: $light-text-color;
+        }
+      }
+    }
+  }
+}

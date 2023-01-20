@@ -1,0 +1,45 @@
+@import "../../styles/mixins";
+
+.country-content {
+  font-family: $font-family-one;
+  button {
+    font-family: $font-family-one;
+  }
+  mat-icon {
+    font-size: 22px;
+    padding-right: 2rem;
+  }
+
+  .text-content {
+    .gps-btn {
+      font-weight: $fw-800;
+      font-size: $fs-13;
+      mat-icon {
+        padding-right: 0px !important;
+        font-size: 18px;
+      }
+    }
+    .img-flag {
+      object-fit: cover;
+      height: 300px;
+      box-shadow: $box-shadow;
+      border-radius: 5px;
+    }
+  }
+
+  .dark-mode {
+    color: $light-color;
+    button {
+      @include dark-mode;
+      box-shadow: $box-shadow;
+      border: 2px solid $dark-color;
+    }
+  }
+  .light-mode {
+    color: $light-text-color;
+    button {
+      color: $light-color;
+      background-color: #ff4081 !important;
+    }
+  }
+}
